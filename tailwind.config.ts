@@ -41,10 +41,24 @@ const config: Config = {
           "0%, 100%": { opacity: "0.35" },
           "50%": { opacity: "0.6" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-22px)" },
+        },
+        "float-rev": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(16px)" },
+        },
+        "spin-slow": {
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         "pulse-glow": "pulse-glow 6s ease-in-out infinite",
+        float: "float 16s ease-in-out infinite",
+        "float-rev": "float-rev 20s ease-in-out infinite",
+        "spin-slow": "spin-slow 120s linear infinite",
       },
     },
   },

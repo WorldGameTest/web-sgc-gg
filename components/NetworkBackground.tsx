@@ -75,7 +75,9 @@ export function NetworkBackground({ className = "" }: { className?: string }) {
           const dy = a.y - b.y;
           const dist = Math.hypot(dx, dy);
           if (dist < LINK_DIST) {
-            const opacity = (1 - dist / LINK_DIST) * 0.32;
+            // smootherstep easing so lines fade in/out gently (no popping)
+            const t = 1 - dist / LINK_DIST;
+            const opacity = t * t * (3 - 2 * t) * 0.32;
             ctx!.strokeStyle = `rgba(52, 211, 153, ${opacity})`;
             ctx!.lineWidth = 1;
             ctx!.beginPath();

@@ -26,7 +26,8 @@ export type Dict = {
   hero: {
     eyebrow: string;
     titleLine1: string;
-    titleLine2: string;
+    titleLine2Lead: string;
+    titleLine2Key: string;
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
@@ -56,7 +57,13 @@ export type Dict = {
     eyebrow: string;
     title: string;
     subtitle: string;
-    members: { name: string; role: string; bio: string }[];
+    members: {
+      name: string;
+      role: string;
+      bio: string;
+      image: string;
+      telegram: string;
+    }[];
   };
   contact: {
     eyebrow: string;
@@ -98,6 +105,8 @@ export type Dict = {
     madeIn: string;
     nav: string;
     contact: string;
+    privacy: string;
+    terms: string;
   };
 };
 
@@ -107,7 +116,7 @@ const games = {
       title: "Economic Miracle",
       tagline: "The most ambitious geopolitical simulator of the modern era.",
       description:
-        "Take charge of any nation and lead it to greatness. Manage economy, laws, military, and diplomacy across 1,423 world regions and 33,700 provinces — a deep, data-driven grand strategy built for players who love systems.",
+        "Take charge of any nation and lead it to greatness. Manage economy, laws, military, and diplomacy across 1,423 world regions and 33,700 provinces, a deep, data-driven grand strategy built for players who love systems.",
       tags: ["Grand Strategy", "Simulation", "Political Sim", "4X"],
       genre: "Grand Strategy / Simulation",
       status: "In Progress",
@@ -122,7 +131,7 @@ const games = {
       title: "Money Garden Simulator",
       tagline: "Grow a little economy, one seed at a time.",
       description:
-        "A cozy management sim where every plant is an asset and every harvest is a market. Cultivate your garden, balance supply and demand, and watch a calm world of numbers quietly bloom — designed for players who want strategy without stress.",
+        "A cozy management sim where every plant is an asset and every harvest is a market. Cultivate your garden, balance supply and demand, and watch a calm world of numbers quietly bloom, designed for players who want strategy without stress.",
       tags: ["Cozy", "Simulation", "Management", "Relaxing"],
       genre: "Cozy / Management Sim",
       status: "Launch · 15 October",
@@ -140,7 +149,7 @@ const games = {
       title: "Economic Miracle",
       tagline: "Самый амбициозный геополитический симулятор современности.",
       description:
-        "Возьмите под контроль любую нацию и приведите её к величию. Управляйте экономикой, законами, армией и дипломатией в 1 423 регионах и 33 700 провинциях — глубокая стратегия, построенная на данных, для тех, кто любит сложные системы.",
+        "Возьмите под контроль любую нацию и приведите её к величию. Управляйте экономикой, законами, армией и дипломатией в 1 423 регионах и 33 700 провинциях, глубокая стратегия, построенная на данных, для тех, кто любит сложные системы.",
       tags: ["Гранд-стратегия", "Симулятор", "Политика", "4X"],
       genre: "Гранд-стратегия / Симулятор",
       status: "В разработке",
@@ -155,7 +164,7 @@ const games = {
       title: "Money Garden Simulator",
       tagline: "Выращивайте маленькую экономику — семя за семенем.",
       description:
-        "Уютный симулятор управления, где каждое растение — это актив, а каждый урожай — это рынок. Развивайте сад, балансируйте спрос и предложение и наблюдайте, как тихо расцветает спокойный мир цифр — для тех, кому нужна стратегия без стресса.",
+        "Уютный симулятор управления, где каждое растение это актив, а каждый урожай это рынок. Развивайте сад, балансируйте спрос и предложение и наблюдайте, как тихо расцветает спокойный мир цифр, для тех, кому нужна стратегия без стресса.",
       tags: ["Уютная", "Симулятор", "Менеджмент", "Расслабляющая"],
       genre: "Уютный / Симулятор менеджмента",
       status: "Выход · 15 октября",
@@ -177,16 +186,17 @@ export const translations: Record<Lang, Dict> = {
       games: "Games",
       team: "Team",
       contact: "Submit",
-      cta: "Send us your project",
+      cta: "Join us",
     },
     hero: {
       eyebrow: "PC Game Publisher · Steam",
       titleLine1: "We don't just publish games.",
-      titleLine2: "We publish market position.",
+      titleLine2Lead: "We publish ",
+      titleLine2Key: "market position.",
       subtitle:
-        "Sector Games creates PC games for Steam — specializing in simulator, strategy, and cozy experiences designed for specific player audiences.",
-      ctaPrimary: "Explore our games",
-      ctaSecondary: "Submit your project",
+        "Sector Games creates PC games for Steam, specializing in simulator, strategy, and cozy experiences designed for specific player audiences.",
+      ctaPrimary: "Our games",
+      ctaSecondary: "About studio",
       stat1Value: "3",
       stat1Label: "Core genres",
       stat2Value: "Steam",
@@ -199,7 +209,7 @@ export const translations: Record<Lang, Dict> = {
       titleLead: "We are",
       titleAccent: "Sector Games",
       body: "An independent PC games company built around one idea: a great game deserves the exact audience that will love it. We craft simulator, strategy, and cozy titles for players who want depth, not noise.",
-      body2: "Most studios chase downloads. We engineer market position — aligning every title with its audience and carrying it from first announcement to launch and beyond.",
+      body2: "Most studios chase downloads. We engineer market position, aligning every title with its audience and carrying it from first announcement to launch and beyond.",
       pillars: [
         {
           title: "Simulator",
@@ -211,12 +221,12 @@ export const translations: Record<Lang, Dict> = {
         },
         {
           title: "Cozy",
-          body: "Calm, welcoming experiences designed to relax — strategy without the stress.",
+          body: "Calm, welcoming experiences designed to relax, strategy without the stress.",
         },
       ],
     },
     games: {
-      eyebrow: "Our Titles",
+      eyebrow: "Our Projects",
       title: "Games with a place in the market.",
       subtitle:
         "Every release is aimed at a specific player. Here's what we're building.",
@@ -232,11 +242,15 @@ export const translations: Record<Lang, Dict> = {
           name: "Nichita Barsanu",
           role: "Co-Founder · Publishing & Positioning",
           bio: "Sets publishing strategy and market positioning across the company, aligning every title with its target audience.",
+          image: "/team/nichita-barsanu.jpg",
+          telegram: "https://t.me/nbyrsanu9",
         },
         {
           name: "Nichita Gancear",
           role: "Co-Founder · Community & Channels",
           bio: "Leads community and channel strategy, building the audiences and partnerships that carry a title from wishlist to launch and beyond.",
+          image: "/team/nichita-gancear.png",
+          telegram: "https://t.me/MrEngine01",
         },
       ],
     },
@@ -261,7 +275,7 @@ export const translations: Record<Lang, Dict> = {
         },
       ],
       listFooter:
-        "Working on your own game? Send us your project — pick a role or write to us in free form below.",
+        "Working on your own game? Send us your project, pick a role or write to us in free form below.",
       wanted: "Hot",
       formHeading: "Apply now",
       nameLabel: "Name",
@@ -281,16 +295,16 @@ export const translations: Record<Lang, Dict> = {
       submitting: "Sending…",
       successTitle: "Application received.",
       successBody:
-        "Thanks for reaching out. We review every application and respond within 3–5 business days.",
+        "Thanks for reaching out. We review every application and respond within 3-5 business days.",
       sendAnother: "Send another",
       responseNote:
-        "We review every application and respond within 3–5 business days.",
+        "We review every application and respond within 3-5 business days.",
       directLine: "Prefer email? Reach us directly at",
     },
     follow: {
       title: "Follow us",
       subtitle:
-        "Release news, announcements, and behind-the-scenes on our games — all in our social channels.",
+        "Release news, announcements, and behind-the-scenes on our games, all in our social channels.",
     },
     footer: {
       tagline: "We don't just publish games. We publish market position.",
@@ -298,6 +312,8 @@ export const translations: Record<Lang, Dict> = {
       madeIn: "PC games for Steam · Simulator · Strategy · Cozy",
       nav: "Navigate",
       contact: "Contact",
+      privacy: "Privacy",
+      terms: "Terms",
     },
   },
   ru: {
@@ -306,16 +322,17 @@ export const translations: Record<Lang, Dict> = {
       games: "Игры",
       team: "Команда",
       contact: "Заявка",
-      cta: "Отправить проект",
+      cta: "В команду",
     },
     hero: {
       eyebrow: "Издатель PC-игр · Steam",
       titleLine1: "Мы издаём не просто игры.",
-      titleLine2: "Мы издаём позицию на рынке.",
+      titleLine2Lead: "Мы издаём ",
+      titleLine2Key: "позицию на рынке.",
       subtitle:
-        "Sector Games создаёт PC-игры для Steam — специализируясь на симуляторах, стратегиях и уютных играх, созданных для конкретной аудитории игроков.",
+        "Sector Games создаёт PC-игры для Steam, специализируясь на симуляторах, стратегиях и уютных играх, созданных для конкретной аудитории игроков.",
       ctaPrimary: "Наши игры",
-      ctaSecondary: "Отправить проект",
+      ctaSecondary: "О студии",
       stat1Value: "3",
       stat1Label: "Ключевых жанра",
       stat2Value: "Steam",
@@ -328,7 +345,7 @@ export const translations: Record<Lang, Dict> = {
       titleLead: "Мы —",
       titleAccent: "Sector Games",
       body: "Независимая компания-издатель PC-игр, построенная вокруг одной идеи: хорошая игра заслуживает именно ту аудиторию, которая её полюбит. Мы создаём симуляторы, стратегии и уютные игры для тех, кому нужна глубина, а не шум.",
-      body2: "Большинство студий гонятся за загрузками. Мы выстраиваем позицию на рынке — согласуя каждую игру с её аудиторией и ведя её от первого анонса до релиза и дальше.",
+      body2: "Большинство студий гонятся за загрузками. Мы выстраиваем позицию на рынке, согласуя каждую игру с её аудиторией и ведя её от первого анонса до релиза и дальше.",
       pillars: [
         {
           title: "Симулятор",
@@ -336,16 +353,16 @@ export const translations: Record<Lang, Dict> = {
         },
         {
           title: "Стратегия",
-          body: "Игры решений и последствий — для тех, кто думает на три хода вперёд.",
+          body: "Игры решений и последствий, для тех, кто думает на три хода вперёд.",
         },
         {
           title: "Уют",
-          body: "Спокойные, тёплые игры, созданные для отдыха — стратегия без стресса.",
+          body: "Спокойные, тёплые игры, созданные для отдыха, стратегия без стресса.",
         },
       ],
     },
     games: {
-      eyebrow: "Наши игры",
+      eyebrow: "Наши проекты",
       title: "Игры со своим местом на рынке.",
       subtitle:
         "Каждый релиз нацелен на конкретного игрока. Вот что мы создаём.",
@@ -361,11 +378,15 @@ export const translations: Record<Lang, Dict> = {
           name: "Никита Барсану",
           role: "Со-основатель · Издание и позиционирование",
           bio: "Определяет издательскую стратегию и позиционирование на рынке для всей компании, согласуя каждую игру с её целевой аудиторией.",
+          image: "/team/nichita-barsanu.jpg",
+          telegram: "https://t.me/nbyrsanu9",
         },
         {
           name: "Никита Ганчар",
           role: "Со-основатель · Сообщество и каналы",
           bio: "Руководит стратегией сообщества и каналов, выстраивая аудитории и партнёрства, которые ведут игру от списка желаемого к релизу и дальше.",
+          image: "/team/nichita-gancear.png",
+          telegram: "https://t.me/MrEngine01",
         },
       ],
     },
@@ -394,7 +415,7 @@ export const translations: Record<Lang, Dict> = {
         },
       ],
       listFooter:
-        "Делаете свою игру? Отправьте нам проект — выберите роль или напишите в свободной форме ниже.",
+        "Делаете свою игру? Отправьте нам проект, выберите роль или напишите в свободной форме ниже.",
       wanted: "Ищем",
       formHeading: "Откликнуться",
       nameLabel: "Имя",
@@ -414,16 +435,16 @@ export const translations: Record<Lang, Dict> = {
       submitting: "Отправка…",
       successTitle: "Заявка получена.",
       successBody:
-        "Спасибо, что написали. Мы рассматриваем каждую заявку и отвечаем в течение 3–5 рабочих дней.",
+        "Спасибо, что написали. Мы рассматриваем каждую заявку и отвечаем в течение 3-5 рабочих дней.",
       sendAnother: "Отправить ещё",
       responseNote:
-        "Мы рассматриваем каждую заявку и отвечаем в течение 3–5 рабочих дней.",
+        "Мы рассматриваем каждую заявку и отвечаем в течение 3-5 рабочих дней.",
       directLine: "Предпочитаете почту? Пишите напрямую:",
     },
     follow: {
       title: "Мы в соцсетях",
       subtitle:
-        "Новости релизов, анонсы и закулисье наших игр — всё в наших социальных каналах.",
+        "Новости релизов, анонсы и закулисье наших игр, всё в наших социальных каналах.",
     },
     footer: {
       tagline: "Мы издаём не просто игры. Мы издаём позицию на рынке.",
@@ -431,6 +452,8 @@ export const translations: Record<Lang, Dict> = {
       madeIn: "PC-игры для Steam · Симулятор · Стратегия · Уют",
       nav: "Навигация",
       contact: "Контакты",
+      privacy: "Конфиденциальность",
+      terms: "Условия",
     },
   },
 };

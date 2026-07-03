@@ -79,7 +79,7 @@ export function Contact() {
                     type="button"
                     onClick={() => pickRole(item.title)}
                     aria-label={`${c.roleLabel}: ${item.title}`}
-                    className={`group flex w-full items-center justify-between rounded-xl border px-5 py-4 text-left transition-colors ${
+                    className={`group flex w-full items-center justify-between rounded-none border px-5 py-4 text-left transition-colors ${
                       role === item.title
                         ? "border-brand-400/50 bg-brand-500/[0.06]"
                         : "border-white/10 bg-white/[0.02] hover:border-brand-400/30 hover:bg-white/[0.03]"
@@ -91,7 +91,7 @@ export function Contact() {
                           {item.title}
                         </span>
                         {item.hot && (
-                          <span className="rounded border border-brand-400/40 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-300">
+                          <span className="rounded-none border border-brand-400/40 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-300">
                             {c.wanted}
                           </span>
                         )}
@@ -116,7 +116,7 @@ export function Contact() {
             <div className="card p-6 sm:p-8">
               {status === "success" ? (
                 <div className="flex min-h-[440px] flex-col items-center justify-center py-8 text-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/15 text-2xl text-brand-300">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-none bg-brand-500/15 text-2xl text-brand-300">
                     ✓
                   </div>
                   <h3 className="mt-5 text-xl font-semibold text-white">

@@ -30,7 +30,7 @@ export function FollowUs() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="group inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-slate-200 transition-all hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-white"
+                  className="group inline-flex items-center gap-2.5 rounded-none border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-slate-200 transition-all hover:border-brand-400/50 hover:bg-brand-500/10 hover:text-white"
                 >
                   <Icon className="h-5 w-5 text-slate-300 transition-colors group-hover:text-brand-300" />
                   <span className="uppercase tracking-wider">{name}</span>

@@ -13,7 +13,10 @@ export function Games() {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-ink-900/40 to-transparent" />
       <div className="container-page">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">{g.eyebrow}</p>
+          <p className="eyebrow">
+            <span className="h-px w-8 bg-brand-400" />
+            {g.eyebrow}
+          </p>
           <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
             {g.title}
           </h2>
@@ -35,7 +38,7 @@ export function Games() {
 function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
   return (
     <article
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-all duration-500 hover:-translate-y-1"
+      className="group relative flex h-full flex-col overflow-hidden rounded-none border border-white/10 bg-white/[0.02] transition-all duration-500 hover:-translate-y-1"
       style={
         {
           // colored border + drop shadow on hover, driven by each game's glow
@@ -54,7 +57,7 @@ function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
       {/* colored border ring on hover */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-none opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           boxShadow: `inset 0 0 0 1px rgba(${game.glow}, 0.55), 0 24px 60px -20px rgba(${game.glow}, 0.5)`,
         }}
@@ -76,7 +79,7 @@ function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/10 to-transparent" />
 
         {/* status badge — top left */}
-        <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md border border-white/15 bg-ink-950/75 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+        <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-none border border-white/15 bg-ink-950/75 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
           <span
             className="h-2 w-2 rounded-full"
             style={{
@@ -108,7 +111,7 @@ function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${game.title} — ${viewLabel}`}
-            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-white/10 text-slate-300 transition-colors group-hover:border-white/25 hover:text-white"
+            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-none border border-white/10 text-slate-300 transition-colors group-hover:border-white/25 hover:text-white"
           >
             <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -125,7 +128,7 @@ function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
           {game.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium text-slate-300"
+              className="rounded-none border border-white/10 bg-white/[0.03] px-3 py-1 text-xs font-medium text-slate-300"
             >
               {tag}
             </span>
@@ -136,7 +139,7 @@ function GameCard({ game, viewLabel }: { game: Game; viewLabel: string }) {
           href={game.steamUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/[0.06]"
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-none border border-white/10 bg-white/[0.02] px-5 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/[0.06]"
         >
           <SteamIcon className="h-4 w-4" />
           {viewLabel}

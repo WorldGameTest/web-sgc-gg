@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useI18n } from "@/lib/i18n";
-import { Logo } from "./Logo";
 
 export function Navbar() {
   const { t, lang, setLang } = useI18n();
@@ -17,51 +16,58 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { href: "#studio", label: t.nav.about },
     { href: "#games", label: t.nav.games },
+    { href: "#studio", label: t.nav.about },
     { href: "#team", label: t.nav.team },
-    { href: "#contact", label: t.nav.contact },
   ];
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-ink-950/80 backdrop-blur-xl"
+          ? "border-b border-white/[0.07] bg-ink-950/70 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <nav className="container-page flex h-16 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="Sector Games home">
-          <Logo className="h-7 w-7" />
-          <span className="text-sm font-bold uppercase tracking-[0.18em] text-white">
-            Sector Games
-          </span>
+        {/* Wordmark */}
+        <a
+          href="#top"
+          className="text-base font-extrabold uppercase tracking-[0.22em] text-white sm:text-lg"
+          aria-label="Sector Games home"
+        >
+          Sector <span className="text-brand-400">Games</span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-slate-400 transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        {/* Right cluster */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          <div className="hidden items-center gap-8 md:flex">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="relative text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-brand-400 after:transition-transform after:duration-300 after:ease-out after:content-[''] hover:text-white hover:after:scale-x-100"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-        <div className="flex items-center gap-3">
-          <LangSwitch lang={lang} setLang={setLang} />
-          <a href="#contact" className="btn-primary hidden text-sm sm:inline-flex">
+          <a
+            href="#contact"
+            className="hidden border border-brand-500 px-5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-400 transition-colors hover:bg-brand-500 hover:text-ink-950 sm:inline-flex"
+          >
             {t.nav.cta}
           </a>
+
+          <LangSwitch lang={lang} setLang={setLang} />
+
           <button
             type="button"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white md:hidden"
+            className="flex h-9 w-9 items-center justify-center border border-white/15 text-white md:hidden"
           >
             <span className="sr-only">Menu</span>
             <div className="space-y-1.5">
@@ -93,7 +99,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+                className="px-3 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-slate-300 hover:bg-white/5 hover:text-white"
               >
                 {link.label}
               </a>
@@ -101,7 +107,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 w-full"
+              className="mt-2 inline-flex justify-center border border-brand-500 px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-brand-400 transition-colors hover:bg-brand-500 hover:text-ink-950"
             >
               {t.nav.cta}
             </a>
@@ -120,17 +126,19 @@ function LangSwitch({
   setLang: (l: "en" | "ru") => void;
 }) {
   return (
-    <div className="flex items-center rounded-full border border-white/10 bg-white/[0.03] p-0.5 text-xs font-semibold">
-      {(["en", "ru"] as const).map((code) => (
+    <div className="flex items-center border border-white/15 text-xs font-bold">
+      {(["en", "ru"] as const).map((code, i) => (
         <button
           key={code}
           type="button"
           onClick={() => setLang(code)}
           aria-pressed={lang === code}
-          className={`rounded-full px-2.5 py-1 uppercase tracking-wider transition-colors ${
+          className={`px-3 py-2 uppercase tracking-wider transition-colors ${
+            i > 0 ? "border-l border-white/15" : ""
+          } ${
             lang === code
-              ? "bg-white text-ink-950"
-              : "text-slate-400 hover:text-white"
+              ? "bg-brand-500/20 text-white"
+              : "text-slate-500 hover:text-white"
           }`}
         >
           {code}

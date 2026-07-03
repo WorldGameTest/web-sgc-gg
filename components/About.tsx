@@ -41,7 +41,7 @@ export function About() {
           <div className="flex flex-col gap-4">
             {a.pillars.map((pillar, i) => (
               <Reveal key={pillar.title} delay={i * 90}>
-                <div className="group flex items-start gap-5 rounded-xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-brand-400/30 hover:bg-white/[0.03] sm:p-6">
+                <div className="group flex items-start gap-5 rounded-none border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-brand-400/30 hover:bg-white/[0.03] sm:p-6">
                   <span className="text-3xl font-extrabold tabular-nums text-white/10 transition-colors group-hover:text-brand-400/40 sm:text-4xl">
                     0{i + 1}
                   </span>

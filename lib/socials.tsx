@@ -6,7 +6,7 @@ export type Social = {
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 };
 
-function TelegramIcon(props: SVGProps<SVGSVGElement>) {
+export function TelegramIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
       <path d="M21.94 4.6 18.9 19.02c-.23 1.02-.84 1.27-1.7.79l-4.7-3.46-2.27 2.18c-.25.25-.46.46-.94.46l.34-4.78 8.7-7.86c.38-.34-.08-.53-.59-.19L6.7 13.2l-4.64-1.45c-1.01-.32-1.03-1.01.21-1.5L20.63 3.1c.84-.31 1.58.2 1.31 1.5Z" />

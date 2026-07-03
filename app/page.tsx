@@ -15,9 +15,9 @@ export default function Home() {
       <main>
         <Hero />
         <Divider />
-        <About />
-        <Divider />
         <Games />
+        <Divider />
+        <About />
         <Divider />
         <Team />
         <Divider />
