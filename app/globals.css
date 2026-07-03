@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-slate-300 antialiased;
+    font-feature-settings: "ss01", "cv01", "cv03";
+  }
+
+  ::selection {
+    @apply bg-brand-500/30 text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-white;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-400;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-500 text-ink-950 hover:bg-brand-400 hover:shadow-[0_0_40px_-8px_rgba(16,185,129,0.6)];
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-white hover:border-white/25 hover:bg-white/[0.06];
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm;
+  }
+
+  .field-label {
+    @apply mb-2 block text-sm font-medium text-slate-200;
+  }
+
+  .field-input {
+    @apply w-full rounded-xl border border-white/10 bg-ink-900/60 px-4 py-3 text-sm text-white placeholder-slate-500 transition-colors focus:border-brand-400/60 focus:outline-none focus:ring-1 focus:ring-brand-400/40;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
