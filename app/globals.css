@@ -118,4 +118,35 @@
   .animate-pulse-glow {
     animation: none !important;
   }
+  /* skip the intro loader for reduced-motion users */
+  .loader-overlay {
+    display: none;
+  }
+}
+
+/* --- Intro loader --- */
+@keyframes loader-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes loader-fade {
+  0%,
+  74% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.loader-overlay {
+  animation: loader-fade 2.1s ease forwards;
+}
+.loader-bar {
+  animation: loader-bar 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

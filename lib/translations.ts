@@ -31,12 +31,6 @@ export type Dict = {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    stat1Value: string;
-    stat1Label: string;
-    stat2Value: string;
-    stat2Label: string;
-    stat3Value: string;
-    stat3Label: string;
   };
   about: {
     eyebrow: string;
@@ -197,12 +191,6 @@ export const translations: Record<Lang, Dict> = {
         "Sector Games creates PC games for Steam, specializing in simulator, strategy, and cozy experiences designed for specific player audiences.",
       ctaPrimary: "Our games",
       ctaSecondary: "About studio",
-      stat1Value: "3",
-      stat1Label: "Core genres",
-      stat2Value: "Steam",
-      stat2Label: "Native platform",
-      stat3Value: "100%",
-      stat3Label: "Audience-first",
     },
     about: {
       eyebrow: "About the company",
@@ -333,12 +321,6 @@ export const translations: Record<Lang, Dict> = {
         "Sector Games создаёт PC-игры для Steam, специализируясь на симуляторах, стратегиях и уютных играх, созданных для конкретной аудитории игроков.",
       ctaPrimary: "Наши игры",
       ctaSecondary: "О студии",
-      stat1Value: "3",
-      stat1Label: "Ключевых жанра",
-      stat2Value: "Steam",
-      stat2Label: "Основная платформа",
-      stat3Value: "100%",
-      stat3Label: "Аудитория прежде всего",
     },
     about: {
       eyebrow: "О компании",
