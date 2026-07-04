@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sectorgames.com"),
+  metadataBase: new URL("https://sector-games.com"),
   title: {
     default: "Sector Games — We publish market position",
     template: "%s · Sector Games",

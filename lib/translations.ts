@@ -239,7 +239,7 @@ export const translations: Record<Lang, Dict> = {
       subtitle: "A small team with a sharp focus on positioning and reach.",
       members: [
         {
-          name: "Nichita Barsanu",
+          name: "Nichita Birsanu",
           role: "Co-Founder · Publishing & Positioning",
           bio: "Sets publishing strategy and market positioning across the company, aligning every title with its target audience.",
           image: "/team/nichita-barsanu.jpg",
@@ -375,14 +375,14 @@ export const translations: Record<Lang, Dict> = {
       subtitle: "Небольшая команда с чётким фокусом на позиционировании и охвате.",
       members: [
         {
-          name: "Никита Барсану",
+          name: "Никита Бырсану",
           role: "Со-основатель · Издание и позиционирование",
           bio: "Определяет издательскую стратегию и позиционирование на рынке для всей компании, согласуя каждую игру с её целевой аудиторией.",
           image: "/team/nichita-barsanu.jpg",
           telegram: "https://t.me/nbyrsanu9",
         },
         {
-          name: "Никита Ганчар",
+          name: "Никита Гончар",
           role: "Со-основатель · Сообщество и каналы",
           bio: "Руководит стратегией сообщества и каналов, выстраивая аудитории и партнёрства, которые ведут игру от списка желаемого к релизу и дальше.",
           image: "/team/nichita-gancear.png",
