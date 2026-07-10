@@ -36,8 +36,13 @@ function escapeHtml(value: string) {
 // --- Telegram delivery --------------------------------------------------
 async function sendTelegram(s: Submission): Promise<boolean> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return false;
+  // TELEGRAM_CHAT_ID may be a single id, or several separated by commas
+  // (e.g. "5378017144,987654321") — or one group id like "-1001234567890".
+  const chatIds = (process.env.TELEGRAM_CHAT_ID ?? "")
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean);
+  if (!token || chatIds.length === 0) return false;
 
   const text =
     `📩 <b>New application — ${escapeHtml(s.role)}</b>\n\n` +
@@ -48,25 +53,35 @@ async function sendTelegram(s: Submission): Promise<boolean> {
     `<b>Discord:</b> ${escapeHtml(s.discord)}\n\n` +
     `<b>Message:</b>\n${escapeHtml(s.message)}`;
 
-  const res = await fetch(
-    `https://api.telegram.org/bot${token}/sendMessage`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-        parse_mode: "HTML",
-        disable_web_page_preview: true,
-      }),
-    }
+  const results = await Promise.all(
+    chatIds.map(async (chatId) => {
+      const res = await fetch(
+        `https://api.telegram.org/bot${token}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: "HTML",
+            disable_web_page_preview: true,
+          }),
+        }
+      );
+      if (!res.ok) {
+        console.error(
+          `[contact] Telegram error for ${chatId}:`,
+          res.status,
+          await res.text()
+        );
+        return false;
+      }
+      return true;
+    })
   );
 
-  if (!res.ok) {
-    console.error("[contact] Telegram error:", res.status, await res.text());
-    return false;
-  }
-  return true;
+  // success if it reached at least one recipient
+  return results.some(Boolean);
 }
 
 // --- Email delivery (Resend) --------------------------------------------

@@ -137,6 +137,21 @@ const games = {
       glow: "16,185,129",
       badge: "#34d399",
     },
+    {
+      title: "Age of Clicks",
+      tagline: "Global strategy meets the clicker.",
+      description:
+        "A one-of-a-kind blend of grand strategy and clicker gameplay. Run a nation with your clicks, build factories, mine resources, and march armies to conquest, while passive income and deep upgrades grow your empire.",
+      tags: ["Strategy", "Clicker", "Simulation", "Multiplayer"],
+      genre: "Strategy / Clicker",
+      status: "Launch · 21 July",
+      year: "2026",
+      steamUrl: "https://store.steampowered.com/app/4804480/Age_of_Clicks",
+      image: "/games/age-of-clicks.jpg",
+      accent: "from-amber-500/30 via-orange-500/20 to-transparent",
+      glow: "245,158,11",
+      badge: "#34d399",
+    },
   ] as Game[],
   ru: [
     {
@@ -168,6 +183,21 @@ const games = {
       image: "/games/money-garden.jpg",
       accent: "from-emerald-500/30 via-lime-400/20 to-transparent",
       glow: "16,185,129",
+      badge: "#34d399",
+    },
+    {
+      title: "Age of Clicks",
+      tagline: "Глобальная стратегия встречает кликер.",
+      description:
+        "Уникальное сочетание гранд-стратегии и кликер-геймплея. Управляйте страной кликами, стройте заводы, добывайте ресурсы и ведите армии к завоеваниям, пока пассивный доход и глубокие улучшения растят вашу империю.",
+      tags: ["Стратегия", "Кликер", "Симулятор", "Мультиплеер"],
+      genre: "Стратегия / Кликер",
+      status: "Выход · 21 июля",
+      year: "2026",
+      steamUrl: "https://store.steampowered.com/app/4804480/Age_of_Clicks",
+      image: "/games/age-of-clicks.jpg",
+      accent: "from-amber-500/30 via-orange-500/20 to-transparent",
+      glow: "245,158,11",
       badge: "#34d399",
     },
   ] as Game[],
