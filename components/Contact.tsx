@@ -4,7 +4,7 @@ import { FormEvent, useRef, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 
-const CONTACT_EMAIL = "collaborationsgc@mail.com";
+const CONTACT_EMAIL = "nichita@sector-games.com";
 
 type Status = "idle" | "submitting" | "success" | "error";
 

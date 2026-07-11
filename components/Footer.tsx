@@ -59,10 +59,10 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               <li>
                 <a
-                  href="mailto:collaborationsgc@mail.com"
+                  href="mailto:nichita@sector-games.com"
                   className="text-sm text-slate-400 transition-colors hover:text-white"
                 >
-                  collaborationsgc@mail.com
+                  nichita@sector-games.com
                 </a>
               </li>
               <li>
